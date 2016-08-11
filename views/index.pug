@@ -1,0 +1,111 @@
+doctype html
+//if IE 8
+  html.ie8(lang='en')  
+//if IE 9
+  html.ie9(lang='en')  
+// [if !IE] <!
+html(lang='en')
+  // <![endif]
+  head
+    title Responsive website template for documentations
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    meta(name='description', content='')
+    meta(name='author', content='')
+    link(rel='shortcut icon', href='images/favicon.ico')
+    link(href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800', rel='stylesheet', type='text/css')
+    link(rel='stylesheet', href='plugins/bootstrap/css/bootstrap.min.css')
+    link(rel='stylesheet', href='plugins/font-awesome/css/font-awesome.css')
+    link(rel='stylesheet', href='plugins/elegant_font/css/style.css')
+    link#theme-style(rel='stylesheet', href='css/styles.css')
+    //if lt IE 9
+      script(src='https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js')
+      script(src='https://oss.maxcdn.com/respond/1.4.2/respond.min.js')
+  body.landing-page
+    .page-wrapper
+      header.header.text-center
+        .container
+          .branding
+            h1.logo
+              //- span.icon_documents_alt.icon(aria-hidden='true')
+              span.text-highlight.text-just-bold Falco
+              span Melee
+          .tagline
+            p Free Bootstrap theme for your project documentation
+            p
+              | Designed with 
+              i.fa.fa-heart
+              |  for developers
+      section.cards-section.text-center
+        .container
+          h2.title Getting started is easy!
+          .intro
+            p
+              | Welcome to prettyDocs. This landing page is an example of how you can use a card view to present segments of your documentation. You can customise the icon fonts based on your needs.
+            .cta-container
+              a.btn.btn-primary.btn-cta(href='http://themes.3rdwavemedia.com/', target='_blank')
+                i.fa.fa-cloud-download
+                |  Download Now
+          #cards-wrapper.cards-wrapper.row
+            .item.item-green.col-md-4.col-sm-6.col-xs-6
+              .item-inner
+                .icon-holder
+                  i.icon.fa.fa-paper-plane
+                h3.title Quick Start
+                p.intro Demo example, consectetuer adipiscing elit
+                a.link(href='start')
+                  span
+            .item.item-pink.item-2.col-md-4.col-sm-6.col-xs-6
+              .item-inner
+                .icon-holder
+                  span.icon.icon_puzzle_alt(aria-hidden='true')
+                h3.title Components
+                p.intro Lorem ipsum dolor sit amet, consectetuer adipiscing elit
+                a.link(href='components')
+                  span
+            .item.item-blue.col-md-4.col-sm-6.col-xs-6
+              .item-inner
+                .icon-holder
+                  span.icon.icon_datareport_alt(aria-hidden='true')
+                h3.title Charts
+                p.intro Lorem ipsum dolor sit amet, consectetuer adipiscing elit
+                a.link(href='charts')
+                  span
+            .item.item-purple.col-md-4.col-sm-6.col-xs-6
+              .item-inner
+                .icon-holder
+                  span.icon.icon_lifesaver(aria-hidden='true')
+                h3.title FAQs
+                p.intro Layout for FAQ page. Lorem ipsum dolor sit amet, consectetuer adipiscing elit
+                a.link(href='faqs')
+                  span
+            .item.item-primary.col-md-4.col-sm-6.col-xs-6
+              .item-inner
+                .icon-holder
+                  span.icon.icon_genius(aria-hidden='true')
+                h3.title Showcase
+                p.intro
+                  | Layout for showcase page. Lorem ipsum dolor sit amet, consectetuer adipiscing elit
+                a.link(href='showcase')
+                  span
+            .item.item-orange.col-md-4.col-sm-6.col-xs-6
+              .item-inner
+                .icon-holder
+                  span.icon.icon_gift(aria-hidden='true')
+                h3.title License &amp; Credits
+                p.intro Layout for license &amp; credits page. Consectetuer adipiscing elit.
+                a.link(href='license')
+                  span
+    footer.footer.text-center
+      .container
+        small.copyright
+          | Designed with 
+          i.fa.fa-heart
+          |  by 
+          a(href='http://themes.3rdwavemedia.com/', target='_blank') Xiaoying Riley
+          |  for developers
+    script(type='text/javascript', src='plugins/jquery-1.12.3.min.js')
+    script(type='text/javascript', src='plugins/bootstrap/js/bootstrap.min.js')
+    script(type='text/javascript', src='plugins/jquery-match-height/jquery.matchHeight-min.js')
+    script(type='text/javascript', src='js/main.js')

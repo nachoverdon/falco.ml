@@ -1,0 +1,175 @@
+doctype html
+//if IE 8
+  html.ie8(lang='en')  
+//if IE 9
+  html.ie9(lang='en')  
+// [if !IE] <!
+html(lang='en')
+  // <![endif]
+  head
+    title Responsive website template for documentations
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    meta(name='description', content='')
+    meta(name='author', content='')
+    link(rel='shortcut icon', href='favicon.ico')
+    link(href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800', rel='stylesheet', type='text/css')
+    link(rel='stylesheet', href='plugins/bootstrap/css/bootstrap.min.css')
+    link(rel='stylesheet', href='plugins/font-awesome/css/font-awesome.css')
+    link(rel='stylesheet', href='plugins/prism/prism.css')
+    link(rel='stylesheet', href='plugins/lightbox/dist/ekko-lightbox.min.css')
+    link(rel='stylesheet', href='plugins/elegant_font/css/style.css')
+    link#theme-style(rel='stylesheet', href='css/styles.css')
+    //if lt IE 9
+      script(src='https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js')
+      script(src='https://oss.maxcdn.com/respond/1.4.2/respond.min.js')
+  body.body-orange
+    .page-wrapper
+      header#header.header
+        .container
+          .branding
+            h1.logo
+              a(href='index')
+                span.icon_documents_alt.icon(aria-hidden='true')
+                |  
+                span.text-highlight Pretty
+                span.text-bold Docs
+          ol.breadcrumb
+            li
+              a(href='index') Home
+            li.active License &amp; Credits
+      .doc-wrapper
+        .container
+          #doc-header.doc-header.text-center
+            h1.doc-title
+              span.icon.icon_gift(aria-hidden='true')
+              |  License &amp; Credits
+            .meta
+              i.fa.fa-clock-o
+              |  Last updated: Jan 25th, 2016
+          .doc-body
+            .doc-content
+              .content-inner
+                section#license.doc-section
+                  h2.section-title PrettyDocs License
+                  .section-block
+                    .jumbotron.text-center
+                      h1 CC BY 3.0
+                      p
+                        | PrettyDocs is made by UX designer 
+                        a(href='https://twitter.com/3rdwave_themes', target='_blank') Xiaoying Riley
+                        |  for developers and is 100% 
+                        strong FREE
+                        |  under the 
+                        a.dotted-line(href='http://creativecommons.org/licenses/by/3.0/', target='_blank') Creative Commons Attribution 3.0 License (CC BY 3.0)
+                      .author-profile.text-center
+                        a.center-block(href='https://twitter.com/3rdwave_themes', target='_blank')
+                          img(src='images/demo/author-profile.png', alt='')
+                      .speech-bubble
+                        h3.speech-title Want to get more freebies in the future?
+                        p
+                          | I tweet and share 
+                          strong #UX
+                          |  and 
+                          strong #webdev
+                          |  related resources/content at 
+                          a(href='https://twitter.com/3rdwave_themes', target='_blank') @3rdwave_themes
+                          br
+                          |  Follow me on twitter and I will keep you informed about my next free template there. :)
+                      .list.list-inline.center-block
+                        a.btn.btn-cta.btn-orange(href='https://twitter.com/3rdwave_themes', target='_blank')
+                          i.fa.fa-twitter
+                          |  Follow Xiaoying on Twitter
+                section#credits.doc-section
+                  h2.section-title PrettyDocs Credits
+                  .section-block
+                    ul.list.list-unstyled
+                      li
+                        a(href='http://getbootstrap.com/', target='_blank')
+                          i.fa.fa-external-link-square
+                          |  Bootstrap
+                      li
+                        a(href='http://fortawesome.github.io/Font-Awesome/', target='_blank')
+                          i.fa.fa-external-link-square
+                          |  FontAwesome
+                      li
+                        a(href='http://www.elegantthemes.com/blog/resources/elegant-icon-font', target='_blank')
+                          i.fa.fa-external-link-square
+                          |  Elegant icon font
+                      li
+                        a(href='http://www.google.com/webfonts', target='_blank')
+                          i.fa.fa-external-link-square
+                          |  Google Fonts
+                      li
+                        a(href='http://jquery.com/', target='_blank')
+                          i.fa.fa-external-link-square
+                          |  jQuery
+                      li
+                        a(href='http://prismjs.com/index', target='_blank')
+                          i.fa.fa-external-link-square
+                          |  Prism
+                      li
+                        a(href='http://ashleydw.github.io/lightbox/', target='_blank')
+                          i.fa.fa-external-link-square
+                          |  Bootstrap Lightbox
+                      li
+                        a(href='http://flesler.blogspot.co.uk/2007/10/jqueryscrollto', target='_blank')
+                          i.fa.fa-external-link-square
+                          |  jQuery ScrollTo
+                      li
+                        a(href='http://brm.io/jquery-match-height/', target='_blank')
+                          i.fa.fa-external-link-square
+                          |  jQuery Match Height
+            .doc-sidebar
+              nav#doc-nav
+                ul#doc-menu.nav.doc-menu.hidden-xs(data-spy='affix')
+                  li
+                    a.scrollto(href='#license') License
+                  li
+                    a.scrollto(href='#credits') Credits
+      #promo-block.promo-block.promo-block-2
+        .container
+          .promo-block-inner
+            h3.promo-title.text-center
+              i.fa.fa-heart
+              |  
+              a(href='https://wrapbootstrap.com/theme/appkit-admin-theme-angularjs-WB051SCJ1?ref=3wm', target='_blank') AppKit - Bootstrap Angular Admin Theme for Developers
+            .row
+              .figure-holder.col-md-5.col-sm-6.col-xs-12
+                .figure-holder-inner
+                  a(href='https://wrapbootstrap.com/theme/appkit-admin-theme-angularjs-WB051SCJ1?ref=3wm', target='_blank')
+                    img.img-responsive(src='images/demo/appkit-widgets-thumb.jpg', alt='AppKit Theme')
+                  a.mask(href='#hook')
+                    i.icon.fa.fa-heart.pink
+              .content-holder.col-md-7.col-sm-6.col-xs-12
+                .content-holder-inner
+                  .desc
+                    h4.content-title
+                      strong Love this free documentation theme?
+                    p
+                      | Check out AppKit - an Angular admin theme I created with my developer friend 
+                      a(href='https://twitter.com/tnajdek') Tom Najdek
+                      |  for developers. AppKit uses modern front-end technologies and is packed with useful components and widgets to speed up your app development.
+                    p
+                      strong.highlight [Tip for developers]:
+                      |  If your project is Open Source, you can use this area to promote your other projects or hold third party adverts like Bootstrap and FontAwesome do!
+                    |  
+                    a.btn.btn-cta(href='#hook') View Demo
+                  .author
+                    a(href='http://themes.3rdwavemedia.com') Xiaoying Riley
+    footer#footer.footer.text-center
+      .container
+        small.copyright
+          | Designed with
+          i.fa.fa-heart
+          |  by 
+          a(href='http://themes.3rdwavemedia.com/', target='_blank') Xiaoying Riley
+          |  for developers
+    script(type='text/javascript', src='plugins/jquery-1.12.3.min.js')
+    script(type='text/javascript', src='plugins/bootstrap/js/bootstrap.min.js')
+    script(type='text/javascript', src='plugins/prism/prism.js')
+    script(type='text/javascript', src='plugins/jquery-scrollTo/jquery.scrollTo.min.js')
+    script(type='text/javascript', src='plugins/lightbox/dist/ekko-lightbox.min.js')
+    script(type='text/javascript', src='plugins/jquery-match-height/jquery.matchHeight-min.js')
+    script(type='text/javascript', src='js/main.js')

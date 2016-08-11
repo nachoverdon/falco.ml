@@ -1,0 +1,23 @@
+# Node build artifacts
+# node_modules
+/node_modules
+npm-debug.log
+
+# Local development
+*.env
+*.dev
+.DS_Store
+
+# template & license
+/templates
+ReadMe.txt
+
+# psd images
+assets/images/psd
+
+#sublime project
+falco.sublime-project
+falco.sublime-workspace
+
+#html files
+views/html

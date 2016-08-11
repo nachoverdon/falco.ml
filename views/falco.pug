@@ -1,0 +1,611 @@
+doctype html
+//if IE 8
+  html.ie8(lang='en')  
+//if IE 9
+  html.ie9(lang='en')  
+// [if !IE] <!
+html(lang='en')
+  // <![endif]
+  head
+    title Falco.ml - Mastering SSBM's Falco Lombardi
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    meta(name='description', content='')
+    meta(name='author', content='')
+    link(rel='shortcut icon', href='favicon.ico')
+    link(href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800', rel='stylesheet', type='text/css')
+    link(rel='stylesheet', href='plugins/bootstrap/css/bootstrap.min.css')
+    link(rel='stylesheet', href='plugins/font-awesome/css/font-awesome.css')
+    link(rel='stylesheet', href='plugins/prism/prism.css')
+    link(rel='stylesheet', href='plugins/elegant_font/css/style.css')
+    link#theme-style(rel='stylesheet', href='css/styles.css')
+    //if lt IE 9
+      script(src='https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js')
+      script(src='https://oss.maxcdn.com/respond/1.4.2/respond.min.js')
+  body.body-blue
+    .page-wrapper
+      header#header.header
+        .container
+          .branding
+            h1.logo
+              a(href='index')
+                img(src='images/header_logo3.png')
+          //- ol.breadcrumb
+          //-   li
+          //-     a(href='index') Home
+          //-   li.active Quick Start
+      .doc-wrapper
+        .container
+          //- #doc-header.doc-header.text-center
+          //-   h1.doc-title
+          //-     i.icon.fa.fa-paper-plane
+          //-     |  Quick Start
+          //-   .meta
+          //-     i.fa.fa-clock-o
+          //-     |  Last updated: Jan 25th, 2016
+          .doc-body
+            .doc-content
+              .content-inner
+                section#download-section.doc-section
+                  h2.section-title Preface
+                  .section-block
+                    .callout-block.callout-danger
+                      .icon-holder
+                        i.fa.fa-exclamation-triangle
+                      .content
+                        h4.callout-title
+                            | Do not double laser from the ledge
+                        p Is not safe.
+                    .panel.panel-primary
+                      .panel-heading
+                        h1 Jabs
+                      .panel-body
+                        // Jabs
+                        table.table.table-bordered.table-hover
+                          thead
+                            tr.bg-primary
+                              each attack in falcoFrameData.jab
+                                th #[h4= attack.name]
+                          tbody
+                            tr
+                              each attack in falcoFrameData.jab
+                                td
+                                  img.frameDataImg(src=attack.img)
+                            tr
+                              each attack in falcoFrameData.jab
+                                td Total frames: #[strong= attack.total]
+                            tr
+                              each attack in falcoFrameData.jab
+                                td Hit frames: 
+                                  if (attack.hit[0] instanceof Array)
+                                    each hit in attack.hit
+                                      strong [#{hit[0]}-#{hit[1]}] 
+                                  else if (typeof attack.hit[0] == 'number')
+                                    strong= attack.hit[0] + '-' + attack.hit[1]
+                            tr
+                              each attack in falcoFrameData.jab
+                                if (attack.IASA)
+                                  td IASA: #[strong= attack.IASA]
+                                else
+                                  td.danger
+                                    strong Non interruptible
+                            tr
+                              each attack in falcoFrameData.jab
+                                if (attack.nextWindow)
+                                  td Window to input new jab: #[strong= attack.nextWindow[0] + '-' + attack.nextWindow[1]]
+                                else
+                                  td.danger
+                                    strong Last jab
+                            tr
+                              each attack in falcoFrameData.jab
+                                if (attack.nextStartASA)
+                                  td Window to input new jab: #[strong= attack.nextStartASA]
+                                else
+                                  td.danger
+                                    strong Last jab, dude... Stop asking!
+                        // Tilts
+                        table.table.table-bordered.table-hover
+                          thead
+                            tr.bg-primary
+                              each attack in falcoFrameData.tilt
+                                th #[h4= attack.name]
+                          tbody
+                            tr
+                              each attack in falcoFrameData.tilt
+                                td
+                                  img.frameDataImg(src=attack.img)
+                            tr
+                              each attack in falcoFrameData.tilt
+                                td Total frames: #[strong= attack.total]
+                            tr
+                              each attack in falcoFrameData.tilt
+                                td Hit frames: 
+                                  if (attack.hit[0] instanceof Array)
+                                    each hit in attack.hit
+                                      strong [#{hit[0]}-#{hit[1]}] 
+                                  else if (typeof attack.hit[0] == 'number')
+                                    strong= attack.hit[0] + '-' + attack.hit[1]
+                            tr
+                              each attack in falcoFrameData.tilt
+                                if (attack.IASA)
+                                  td IASA: #[strong= attack.IASA]
+                                else
+                                  td.danger
+                                    strong Non interruptible
+                        // Aerials
+                        table.table.table-bordered.table-hover
+                          thead
+                            tr.bg-primary
+                              each attack in falcoFrameData.aerial
+                                th #[h4= attack.name]
+                          tbody
+                            tr
+                              each attack in falcoFrameData.aerial
+                                td
+                                  img.frameDataImg(src=attack.img)
+                            tr
+                              each attack in falcoFrameData.aerial
+                                td Total frames: #[strong= attack.total]
+                            tr
+                              each attack in falcoFrameData.aerial
+                                td Hit frames: 
+                                  if (attack.hit[0] instanceof Array)
+                                    each hit in attack.hit
+                                      strong [#{hit[0]}-#{hit[1]}] 
+                                  else if (typeof attack.hit[0] == 'number')
+                                    strong= attack.hit[0] + '-' + attack.hit[1]
+                            tr
+                              each attack in falcoFrameData.aerial
+                                if (attack.IASA)
+                                  td IASA: #[strong= attack.IASA]
+                                else
+                                  td.danger
+                                    strong Non interruptible
+                            tr
+                              each attack in falcoFrameData.aerial
+                                td Auto cancel: #[strong= attack.autoCancel[0] + '-' + attack.autoCancel[1]]
+
+                            tr
+                              each attack in falcoFrameData.aerial
+                                td Landing lag: #[strong= attack.landingLag]
+                            tr
+                              each attack in falcoFrameData.aerial
+                                td L-Canceled: #[strong= attack.landingLagLCanceled]
+                        // Smashes
+                        table.table.table-bordered.table-hover
+                          thead
+                            tr.bg-primary
+                              each attack in falcoFrameData.smash
+                                th #[h4= attack.name]
+                          tbody
+                            tr
+                              each attack in falcoFrameData.smash
+                                td
+                                  img.frameDataImg(src=attack.img)
+                            tr
+                              each attack in falcoFrameData.smash
+                                td Total frames: #[strong= attack.total]
+                            tr
+                              each attack in falcoFrameData.smash
+                                td Hit frames: 
+                                  if (attack.hit[0] instanceof Array)
+                                    each hit in attack.hit
+                                      strong [#{hit[0]}-#{hit[1]}] 
+                                  else if (typeof attack.hit[0] == 'number')
+                                    strong= attack.hit[0] + '-' + attack.hit[1]
+                            tr
+                              each attack in falcoFrameData.smash
+                                td Charge starts at: #[strong= attack.charge]
+                            tr
+                              each attack in falcoFrameData.smash
+                                if (attack.IASA)
+                                  td IASA: #[strong= attack.IASA]
+                                else
+                                  td.danger
+                                    strong Non interruptible
+                            tr
+                              each attack in falcoFrameData.smash
+                                if (attack.invincible)
+                                  td Invincibility frames: #[storng= attack.invicible]
+                                else
+                                  td.danger
+                                    strong No invincibiliy frames
+                    p
+                      | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi nec imperdiet turpis. Curabitur aliquet pulvinar ultrices. Etiam at posuere leo. Proin ultrices ex et dapibus feugiat 
+                      a(href='#') link example
+                      |  aenean purus leo, faucibus at elit vel, aliquet scelerisque dui. Etiam quis elit euismod, imperdiet augue sit amet, imperdiet odio. Aenean sem erat, hendrerit eu gravida id, dignissim ut ante. Nam consequat porttitor libero euismod congue.
+                    a.btn.btn-green(href='http://themes.3rdwavemedia.com', target='_blank')
+                      i.fa.fa-download
+                      |  Download PrettyDocs
+                section#installation-section.doc-section
+                  h2.section-title Frame data
+                  #step1.section-block
+                    h3.block-title Step One
+                    p
+                      | Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis.
+                    .code-block
+                      h6 Default code example:
+                      p
+                        code bower install &lt;package&gt;
+                      p
+                        code npm install &lt;package&gt;
+                  #step2.section-block
+                    h3.block-title Step Two
+                    p
+                      | Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.
+                    .row
+                      .col-md-6.col-sm-6.col-xs-12
+                        h6 Un-ordered list example
+                        ul.list
+                          li Lorem ipsum dolor sit amet.
+                          li Aliquam tincidunt mauris.
+                          li
+                            | Ultricies eget vel aliquam libero.
+                            ul
+                              li Turpis pulvinar
+                              li Feugiat scelerisque
+                              li Ut tincidunt
+                          li Pellentesque habitant morbi.
+                          li Praesent dapibus, neque id.
+                      .col-md-6.col-sm-6.col-xs-12
+                        h6 Ordered list example
+                        ol.list
+                          li Lorem ipsum dolor sit amet.
+                          li Aliquam tincidunt mauris.
+                          li
+                            | Ultricies eget vel aliquam libero.
+                            ul
+                              li Turpis pulvinar
+                              li Feugiat scelerisque
+                              li Ut tincidunt
+                          li Pellentesque habitant morbi.
+                          li Praesent dapibus, neque id.
+                  #step3.section-block
+                    h3.block-title Step Three
+                    p
+                      | Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis.
+                section#code-section.doc-section
+                  h2.section-title Code
+                  .section-block
+                    p
+                      a(href='http://prismjs.com/', target='_blank') PrismJS
+                      |  is used as the syntax highlighter here. You can 
+                      a(href='http://prismjs.com/download', target='_blank') build your own version
+                      |  via their website should you need to.
+                  #html.section-block
+                    .callout-block.callout-success
+                      .icon-holder
+                        i.fa.fa-thumbs-up
+                      .content
+                        h4.callout-title Useful Tip:
+                        p
+                          | You can use this online 
+                          a(href='https://mothereff.in/html-entities', target='_blank') HTML entity encoder/decoder
+                          |  to generate your code examples.
+                    .code-block
+                      h6 HTML Code Example
+                      pre.
+                        
+                  #css.section-block
+                    .code-block
+                      h6 CSS Code Example
+                      pre.
+                        
+                  #less.section-block
+                    .code-block
+                      h6 LESS Code Example
+                      pre.
+                        
+                  #sass.section-block
+                    .code-block
+                      h6 Sass Code Example
+                      pre.
+                        
+                  #javascript.section-block
+                    .code-block
+                      h6 JavaScript Code Example
+                      pre.
+                        
+                  #python.section-block
+                    .code-block
+                      h6 Python Code Example
+                      pre.
+                        
+                  #php.section-block
+                    .code-block
+                      h6 PHP Code Example
+                      pre.
+                        
+                  #handlebars.section-block
+                    .code-block
+                      h6 Handlebars Code Example
+                      pre.
+                        
+                    .code-block
+                      h6 Git Code Example
+                      pre.
+                        
+                section#callouts-section.doc-section
+                  h2.section-title Callouts
+                  .section-block
+                    p
+                      | Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo.
+                  .section-block
+                    .callout-block.callout-info
+                      .icon-holder
+                        i.fa.fa-info-circle
+                      .content
+                        h4.callout-title Aenean imperdiet
+                        p
+                          | Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium 
+                          code &lt;code&gt;
+                          |  , Nemo enim ipsam voluptatem quia voluptas 
+                          a(href='#') link example
+                          |  sit aspernatur aut odit aut fugit.
+                    .callout-block.callout-warning
+                      .icon-holder
+                        i.fa.fa-bug
+                      .content
+                        h4.callout-title Morbi posuere
+                        p
+                          | Nunc hendrerit odio quis dignissim efficitur. Proin ut finibus libero. Morbi posuere fringilla felis eget sagittis. Fusce sem orci, cursus in tortor 
+                          a(href='#') link example
+                          |  tellus vel diam viverra elementum.
+                    .callout-block.callout-success
+                      .icon-holder
+                        i.fa.fa-thumbs-up
+                      .content
+                        h4.callout-title Lorem ipsum dolor sit amet
+                        p
+                          | Lorem ipsum dolor sit amet, consectetuer adipiscing elit. 
+                          a(href='#') Link example
+                          |  aenean commodo ligula eget dolor.
+                    .callout-block.callout-danger
+                      .icon-holder
+                        i.fa.fa-exclamation-triangle
+                      .content
+                        h4.callout-title Interdum et malesuada
+                        p
+                          | Morbi eget interdum sapien. Donec sed turpis sed nulla lacinia accumsan vitae ut tellus. Aenean vestibulum 
+                          a(href='#') Link example
+                          |  maximus ipsum vel dignissim. Morbi ornare elit sit amet massa feugiat, viverra dictum ipsum pellentesque.
+                section#tables-section.doc-section
+                  h2.section-title Tables
+                  .section-block
+                    p
+                      | Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis.
+                  .section-block
+                    h6 Basic Table
+                    .table-responsive
+                      table.table
+                        thead
+                          tr
+                            th #
+                            th First Name
+                            th Last Name
+                            th Username
+                        tbody
+                          tr
+                            th(scope='row') 1
+                            td Mark
+                            td Otto
+                            td @mdo
+                          tr
+                            th(scope='row') 2
+                            td Jacob
+                            td Thornton
+                            td @fat
+                          tr
+                            th(scope='row') 3
+                            td Larry
+                            td the Bird
+                            td @twitter
+                    h6 Bordered Table
+                    .table-responsive
+                      table.table.table-striped
+                        thead
+                          tr
+                            th #
+                            th First Name
+                            th Last Name
+                            th Username
+                        tbody
+                          tr
+                            th(scope='row') 1
+                            td Mark
+                            td Otto
+                            td @mdo
+                          tr
+                            th(scope='row') 2
+                            td Jacob
+                            td Thornton
+                            td @fat
+                          tr
+                            th(scope='row') 3
+                            td Larry
+                            td the Bird
+                            td @twitter
+                    h6 Striped Table
+                    .table-responsive
+                      table.table.table-bordered
+                        thead
+                          tr
+                            th #
+                            th First Name
+                            th Last Name
+                            th Username
+                        tbody
+                          tr
+                            th(scope='row') 1
+                            td Mark
+                            td Otto
+                            td @mdo
+                          tr
+                            th(scope='row') 2
+                            td Jacob
+                            td Thornton
+                            td @fat
+                          tr
+                            th(scope='row') 3
+                            td Larry
+                            td the Bird
+                            td @twitter
+                section#buttons-section.doc-section
+                  h2.section-title Buttons
+                  .section-block
+                    p
+                      | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi nec imperdiet turpis. Curabitur aliquet pulvinar ultrices. Etiam at posuere leo. Proin ultrices ex et dapibus feugiat 
+                      a(href='#') link example
+                      |  aenean purus leo, faucibus at elit vel, aliquet scelerisque dui. Etiam quis elit euismod, imperdiet augue sit amet, imperdiet odio. Aenean sem erat, hendrerit eu gravida id, dignissim ut ante. Nam consequat porttitor libero euismod congue.
+                    .row
+                      .col-md-6.col-sm-6.col-xs-12
+                        h6 Basic Buttons
+                        ul.list.list-unstyled
+                          li
+                            a.btn.btn-primary(href='#') Primary Button
+                          li
+                            a.btn.btn-green(href='#') Green Button
+                          li
+                            a.btn.btn-blue(href='#') Blue Button
+                          li
+                            a.btn.btn-orange(href='#') Orange Button
+                          li
+                            a.btn.btn-red(href='#') Red Button
+                      .col-md-6.col-sm-6.col-xs-12
+                        h6 CTA Buttons
+                        ul.list.list-unstyled
+                          li
+                            a.btn.btn-primary.btn-cta(href='#')
+                              i.fa.fa-download
+                              |  Download Now
+                          li
+                            a.btn.btn-green.btn-cta(href='#')
+                              i.fa.fa-code-fork
+                              |  Fork Now
+                          li
+                            a.btn.btn-blue.btn-cta(href='#')
+                              i.fa.fa-play-circle
+                              |  Find Out Now
+                          li
+                            a.btn.btn-orange.btn-cta(href='#')
+                              i.fa.fa-bug
+                              |  Report Bugs
+                          li
+                            a.btn.btn-red.btn-cta(href='#')
+                              i.fa.fa-exclamation-circle
+                              |  Submit Issues
+                section#video-section.doc-section
+                  h2.section-title Video
+                  .section-block
+                    .row
+                      .col-md-6.col-sm-6.col-xs-12
+                        h6 Responsive Video 16:9
+                        .embed-responsive.embed-responsive-16by9
+                          iframe.embed-responsive-item(src='https://www.youtube.com/embed/ejBkOjEG6F0?rel=0&controls=0&showinfo=0', frameborder='0', allowfullscreen='')
+                      .col-md-6.col-sm-6.col-xs-12
+                        h6 Responsive Video 4:3
+                        .embed-responsive.embed-responsive-4by3
+                          iframe.embed-responsive-item(src='https://www.youtube.com/embed/ejBkOjEG6F0?rel=0&controls=0&showinfo=0', frameborder='0', allowfullscreen='')
+                  section#icons-section.doc-section
+                    h2.section-title Icons
+                    .section-block
+                      p
+                        | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi nec imperdiet turpis. Curabitur aliquet pulvinar ultrices. Etiam at posuere leo. Proin ultrices ex et dapibus feugiat 
+                        a(href='#') link example
+                        |  aenean purus leo, faucibus at elit vel, aliquet scelerisque dui. Etiam quis elit euismod, imperdiet augue sit amet, imperdiet odio. Aenean sem erat, hendrerit eu gravida id, dignissim ut ante. Nam consequat porttitor libero euismod congue.
+                    .section-block
+                      h6 Elegant Icon Font
+                      |  
+                      a(href='https://www.elegantthemes.com/blog/resources/elegant-icon-font', target='_blank')
+                        img.img-responsive(src='images/demo/elegant-icon-font.jpg', alt='elegant icons')
+                    .section-block
+                      h6 FontAwesome Icon Font
+                      |  
+                      a(href='https://fortawesome.github.io/Font-Awesome/', target='_blank')
+                        img.img-responsive(src='images/demo/fontawesome-icons.png', alt='fontawesome')
+            .doc-sidebar.hidden-xs
+              nav#doc-nav
+                ul#doc-menu.nav.doc-menu(data-spy='affix')
+                  li
+                    a.scrollto(href='#download-section') Download
+                  li
+                    a.scrollto(href='#installation-section') Installation
+                    ul.nav.doc-sub-menu
+                      li
+                        a.scrollto(href='#step1') Step One
+                      li
+                        a.scrollto(href='#step2') Step Two
+                      li
+                        a.scrollto(href='#step3') Step Three
+                  li
+                    a.scrollto(href='#code-section') Code
+                    ul.nav.doc-sub-menu
+                      li
+                        a.scrollto(href='#html') HTML
+                      li
+                        a.scrollto(href='#css') CSS
+                      li
+                        a.scrollto(href='#less') LESS
+                      li
+                        a.scrollto(href='#sass') Sass
+                      li
+                        a.scrollto(href='#javascript') JavaScript
+                      li
+                        a.scrollto(href='#python') Python
+                      li
+                        a.scrollto(href='#php') PHP
+                      li
+                        a.scrollto(href='#handlebars') Handlebars
+                  li
+                    a.scrollto(href='#callouts-section') Callouts
+                  li
+                    a.scrollto(href='#tables-section') Tables
+                  li
+                    a.scrollto(href='#buttons-section') Buttons
+                  li
+                    a.scrollto(href='#video-section') Video
+                  li
+                    a.scrollto(href='#icons-section') Icons
+      #promo-block.promo-block
+        .container
+          .promo-block-inner
+            h3.promo-title.text-center
+              i.fa.fa-heart
+              |  
+              a(href='https://wrapbootstrap.com/theme/appkit-admin-theme-angularjs-WB051SCJ1?ref=3wm', target='_blank') AppKit - Bootstrap Angular Admin Theme for Developers
+            .row
+              .figure-holder.col-md-5.col-sm-6.col-xs-12
+                .figure-holder-inner
+                  a(href='https://wrapbootstrap.com/theme/appkit-admin-theme-angularjs-WB051SCJ1?ref=3wm', target='_blank')
+                    img.img-responsive(src='images/demo/appkit-widgets-thumb.jpg', alt='AppKit Theme')
+                  a.mask(href='#hook')
+                    i.icon.fa.fa-heart.pink
+              .content-holder.col-md-7.col-sm-6.col-xs-12
+                .content-holder-inner
+                  .desc
+                    h4.content-title
+                      strong Love this free documentation theme?
+                    p
+                      | Check out AppKit - an Angular admin theme I created with my developer friend 
+                      a(href='https://twitter.com/tnajdek') Tom Najdek
+                      |  for developers. AppKit uses modern front-end technologies and is packed with useful components and widgets to speed up your app development.
+                    p
+                      strong.highlight [Tip for developers]:
+                      |  If your project is Open Source, you can use this area to promote your other projects or hold third party adverts like Bootstrap and FontAwesome do!
+                  .author
+                    a(href='http://themes.3rdwavemedia.com') Xiaoying Riley
+    footer#footer.footer.text-center
+      .container
+        small.copyright
+          | Designed with
+          i.fa.fa-heart
+          |  by 
+          a(href='http://themes.3rdwavemedia.com/', targe='_blank') Xiaoying Riley
+          |  for developers
+    script(type='text/javascript', src='plugins/jquery-1.12.3.min.js')
+    script(type='text/javascript', src='plugins/bootstrap/js/bootstrap.min.js')
+    script(type='text/javascript', src='plugins/prism/prism.js')
+    script(type='text/javascript', src='plugins/jquery-scrollTo/jquery.scrollTo.min.js')
+    script(type='text/javascript', src='plugins/jquery-match-height/jquery.matchHeight-min.js')
+    script(type='text/javascript', src='js/main.js')

@@ -1,0 +1,29 @@
+{
+  "name": "falco.ml",
+  "version": "1.0.0",
+  "description": "A website about Falco Lombardi, a SSBM character.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "keywords": [
+    "falco",
+    "melee",
+    "super",
+    "smash",
+    "bros",
+    "shine"
+  ],
+  "author": "Nacho 'bazoo' Verdón <nverblaz@gmail.com>",
+  "license": "CC-BY-NC-4.0",
+  "dependencies": {
+    "express": "^4.14.0",
+    "serve-favicon": "^2.3.0"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-less": "^3.1.0",
+    "gulp-nodemon": "^2.1.0"
+  }
+}
